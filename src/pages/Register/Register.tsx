@@ -5,6 +5,7 @@ import { yupResolver } from '@hookform/resolvers/yup'
 
 import Input from 'src/components/Input'
 import { schema, Schema } from 'src/utils/rules'
+import Button from 'src/components/Button'
 
 type FormData = Pick<Schema, 'email' | 'password' | 'confirm_password'>
 const registerSchema = schema.pick(['email', 'password', 'confirm_password'])
@@ -38,7 +39,7 @@ export default function Register() {
                 register={register}
                 type='email'
                 className='mt-8'
-                // errorMessage={errors.email?.message}
+                errorMessage={errors.email?.message}
                 placeholder='Email'
               />
               <Input
@@ -47,7 +48,7 @@ export default function Register() {
                 type='password'
                 className='mt-2'
                 classNameEye='absolute right-[5px] h-5 w-5 cursor-pointer top-[12px]'
-                // errorMessage={errors.password?.message}
+                errorMessage={errors.password?.message}
                 placeholder='Password'
                 autoComplete='on'
               />
@@ -58,19 +59,19 @@ export default function Register() {
                 type='password'
                 className='mt-2'
                 classNameEye='absolute right-[5px] h-5 w-5 cursor-pointer top-[12px]'
-                // errorMessage={errors.confirm_password?.message}
+                errorMessage={errors.confirm_password?.message}
                 placeholder='Confirm Password'
                 autoComplete='on'
               />
 
               <div className='mt-2'>
-                {/* <Button
+                <Button
                   className='flex w-full items-center justify-center bg-red-500 py-4 px-2 text-sm uppercase text-white hover:bg-red-600'
-                  isLoading={registerAccountMutation.isLoading}
-                  disabled={registerAccountMutation.isLoading}
+                  // isLoading={registerAccountMutation.isLoading}
+                  // disabled={registerAccountMutation.isLoading}
                 >
                   Đăng ký
-                </Button> */}
+                </Button>
               </div>
               <div className='mt-8 flex items-center justify-center'>
                 <span className='text-gray-400'>Bạn đã có tài khoản?</span>

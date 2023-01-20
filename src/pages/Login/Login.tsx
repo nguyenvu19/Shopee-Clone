@@ -5,6 +5,7 @@ import { yupResolver } from '@hookform/resolvers/yup'
 
 import Input from 'src/components/Input'
 import { schema, Schema } from 'src/utils/rules'
+import Button from 'src/components/Button'
 
 type FormData = Pick<Schema, 'email' | 'password'>
 const loginSchema = schema.pick(['email', 'password'])
@@ -50,16 +51,16 @@ export default function Login() {
                 placeholder='Password'
                 autoComplete='on'
               />
-              {/* <div className='mt-3'>
+              <div className='mt-3'>
                 <Button
                   type='submit'
                   className='flex  w-full items-center justify-center bg-red-500 py-4 px-2 text-sm uppercase text-white hover:bg-red-600'
-                  isLoading={loginMutation.isLoading}
-                  disabled={loginMutation.isLoading}
+                  // isLoading={loginMutation.isLoading}
+                  // disabled={loginMutation.isLoading}
                 >
                   Đăng nhập
                 </Button>
-              </div> */}
+              </div>
               <div className='mt-8 flex items-center justify-center'>
                 <span className='text-gray-400'>Bạn chưa có tài khoản?</span>
                 <Link className='ml-1 text-red-400' to='/register'>
