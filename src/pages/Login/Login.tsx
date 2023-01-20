@@ -7,7 +7,7 @@ import Input from 'src/components/Input'
 import { schema, Schema } from 'src/utils/rules'
 
 type FormData = Pick<Schema, 'email' | 'password'>
-const registerSchema = schema.pick(['email', 'password', 'confirm_password'])
+const loginSchema = schema.pick(['email', 'password'])
 
 export default function Login() {
   const {
@@ -15,7 +15,7 @@ export default function Login() {
     handleSubmit,
     formState: { errors }
   } = useForm<FormData>({
-    resolver: yupResolver(registerSchema)
+    resolver: yupResolver(loginSchema)
   })
 
   const onSubmit = handleSubmit((data) => {

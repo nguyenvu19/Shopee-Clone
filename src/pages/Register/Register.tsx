@@ -1,5 +1,8 @@
-import { useForm } from 'react-hook-form'
 import { Link } from 'react-router-dom'
+
+import { useForm } from 'react-hook-form'
+import { yupResolver } from '@hookform/resolvers/yup'
+
 import Input from 'src/components/Input'
 import { schema, Schema } from 'src/utils/rules'
 
@@ -12,7 +15,9 @@ export default function Register() {
     handleSubmit,
     getValues,
     formState: { errors }
-  } = useForm<FormData>()
+  } = useForm<FormData>({
+    resolver: yupResolver(registerSchema)
+  })
 
   const onSubmit = handleSubmit((data) => {
     console.log(data)
