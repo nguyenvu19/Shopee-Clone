@@ -4,8 +4,8 @@ const plugin = require('tailwindcss/plugin')
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
-  corePlugins:{
-    container:false
+  corePlugins: {
+    container: false
   },
   theme: {
     extend: {
@@ -15,16 +15,17 @@ module.exports = {
     }
   },
   plugins: [
-    plugin(function({addComponents,theme}){
+    plugin(function ({ addComponents, theme }) {
       addComponents({
-        '.container':{
+        '.container': {
           maxWidth: theme('columns.7xl'),
-          marginLeft:'auto',
-          marginRight:'auto',
-          paddingLeft:theme('spacing.4'),
-          paddingRight:theme('spacing.4')
+          marginLeft: 'auto',
+          marginRight: 'auto',
+          paddingLeft: theme('spacing.4'),
+          paddingRight: theme('spacing.4')
         }
       })
-    })
+    }),
+    require('@tailwindcss/line-clamp')
   ]
 }
