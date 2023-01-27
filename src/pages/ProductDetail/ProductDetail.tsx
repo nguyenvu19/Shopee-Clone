@@ -1,4 +1,5 @@
 import { useQuery } from '@tanstack/react-query'
+import DOMPurify from 'dompurify'
 import { useParams } from 'react-router-dom'
 
 import productApi from 'src/apis/product.api'
@@ -168,6 +169,13 @@ export default function ProductDetail() {
       <div className='mt-8 bg-white p-4 shadow'>
         <div className='container'>
           <div className='rounded bg-gray-50 p-4 text-lg capitalize text-slate-700'>Mô tả sản phẩm</div>
+          <div className='mx-4 mt-12 mb-4 text-sm leading-loose'>
+            <div
+              dangerouslySetInnerHTML={{
+                __html: DOMPurify.sanitize(product.description)
+              }}
+            />
+          </div>
         </div>
       </div>
     </div>
