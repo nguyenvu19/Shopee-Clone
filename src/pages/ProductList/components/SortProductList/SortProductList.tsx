@@ -106,7 +106,7 @@ export default function SortProductList({ queryConfig, pageSize }: Props) {
             <span className='text-orange'>{page}</span>
             <span>/{pageSize}</span>
           </div>
-          <div className='ml-2'>
+          <div className='ml-2 flex'>
             {page === 1 ? (
               <span className='flex h-8 w-9 cursor-not-allowed items-center justify-center rounded-tl-sm rounded-bl-sm bg-white/60  shadow hover:bg-slate-100'>
                 <svg
