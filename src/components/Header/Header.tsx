@@ -1,4 +1,4 @@
-import { useMutation, useQuery } from '@tanstack/react-query'
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { useContext } from 'react'
 import { createSearchParams, Link, useNavigate } from 'react-router-dom'
 
@@ -26,6 +26,8 @@ export default function Header() {
 
   const navigate = useNavigate()
 
+  const queryClient = useQueryClient()
+
   const { register, handleSubmit } = useForm<FormData>({
     defaultValues: {
       name: ''
@@ -40,6 +42,7 @@ export default function Header() {
     onSuccess: () => {
       setIsAuthenticated(false)
       setProfile(null)
+      queryClient.removeQueries({ queryKey: ['purchases', { status: purchasesStatus.inCart }] })
     }
   })
 
@@ -267,9 +270,11 @@ export default function Header() {
                   />
                 </svg>
 
-                <span className='absolute top-[-5px] left-[17px] rounded-full bg-white px-[9px] py-[1px] text-xs text-orange '>
-                  {purchasesInCart?.length}
-                </span>
+                {purchasesInCart && (
+                  <span className='absolute top-[-5px] left-[17px] rounded-full bg-white px-[9px] py-[1px] text-xs text-orange '>
+                    {purchasesInCart?.length}
+                  </span>
+                )}
               </Link>
             </Popover>
           </div>
