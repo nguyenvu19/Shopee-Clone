@@ -243,6 +243,13 @@ export default function Header() {
                           {purchasesInCart.length > MAX_PURCHASES ? purchasesInCart.length - MAX_PURCHASES : ''} Thêm
                           hàng vào giỏ
                         </div>
+
+                        <Link
+                          to={path.cart}
+                          className='rounded-sm bg-orange px-4 py-2 capitalize text-white hover:bg-opacity-90'
+                        >
+                          Xem giỏ hàng
+                        </Link>
                       </div>
                     </div>
                   ) : (
