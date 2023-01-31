@@ -10,11 +10,11 @@ import Cart from 'src/pages/Cart'
 import Login from 'src/pages/Login'
 import ProductDetail from 'src/pages/ProductDetail'
 import ProductList from 'src/pages/ProductList'
-import Profile from 'src/pages/Profile'
 import Register from 'src/pages/Register'
-import UserLayout from '../pages/User/layouts/UserLayout'
-import ChangePassword from '../pages/User/pages/ChangePassword'
-import HistoryPurchase from '../pages/User/pages/HistoryPurchase'
+import UserLayout from 'src/pages/User/layouts/UserLayout'
+import ChangePassword from 'src/pages/User/pages/ChangePassword'
+import HistoryPurchase from 'src/pages/User/pages/HistoryPurchase'
+import Profile from 'src/pages/User/pages/Profile'
 
 function ProtectedRoute() {
   const { isAuthenticated } = useContext(AppContext)
