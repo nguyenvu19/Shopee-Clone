@@ -1,6 +1,7 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import DOMPurify from 'dompurify'
 import { useEffect, useMemo, useRef, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { useNavigate, useParams } from 'react-router-dom'
 import { toast } from 'react-toastify'
 
@@ -15,6 +16,8 @@ import { formatCurrency, formatNumberToSocialStyle, getIdFromNameId, rateSale } 
 import Product from '../ProductList/components/Product'
 
 export default function ProductDetail() {
+  const { t } = useTranslation(['product'])
+
   const [activeImage, setActiveImage] = useState('')
   const [currentIndexImages, setCurrentIndexImages] = useState([0, 5])
   const [buyCount, setBuyCount] = useState(1)
@@ -222,7 +225,6 @@ export default function ProductDetail() {
               </div>
               <div className='mt-8 flex items-center'>
                 <div className='capitalize text-gray-500'>Số lượng</div>
-
                 <QuantityController
                   value={buyCount}
                   onType={handleBuyCount}
@@ -230,8 +232,9 @@ export default function ProductDetail() {
                   onIncrease={handleBuyCount}
                   max={product.quantity}
                 />
-
-                <div className='ml-6 text-sm text-gray-500'>{product.quantity} sản phẩm có sẵn</div>
+                <div className='ml-6 text-sm text-gray-500'>
+                  {product.quantity} {t('product:available')}
+                </div>
               </div>
               <div className='mt-8 flex items-center'>
                 <button
